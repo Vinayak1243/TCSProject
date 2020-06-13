@@ -68,3 +68,6 @@ def update():
         return redirect(url_for('login'))
     else:
         return render_template('update.html')
+
+    
+app.run(debug=True)    
