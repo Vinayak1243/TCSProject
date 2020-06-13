@@ -3,6 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
     {% block head %}{% endblock %}
     <link
       rel="stylesheet"
@@ -24,21 +31,44 @@
             <ul>
               <li>
                 <i class="fas fa-home icon"></i
-                ><a href="{{ url_for('update') }}">
-                  Update Customer's Details</a
-                >
+                ><a href="{{ url_for('create') }}"> Customer Management</a>
               </li>
-              <li><i class="fas fa-underline icon"></i> Tipography</li>
-              <li><i class="fas fa-boxes icon"></i> Widgets</li>
-              <li><i class="fas fa-table icon"></i> Tables</li>
               <li>
-                <i class="fab fa-wpforms icon"></i> Forms
+                <i class="fas fa-chart-pie icon"></i>
+                <a href="{{ url_for('update1') }}"> Update Details</a>
+              </li>
+              <li>
+                <i class="fas fa-chart-pie icon"></i
+                ><a href="{{ url_for('delcust') }}"> Delete Details</a>
+              </li>
+              <li>
+                <i class="fas fa-underline icon"></i>
+                Account Management
                 <ul>
-                  <li><i class="fas fa-pencil-alt icon"></i> First form</li>
-                  <li><i class="fas fa-paper-plane icon"></i> Second form</li>
+                  <li>
+                    <i class="fas fa-boxes icon"></i
+                    ><a href="{{ url_for('account')}}">Create Account</a>
+                  </li>
+                  <li>
+                    <i class="fas fa-boxes icon"></i
+                    ><a href="{{ url_for('delacc')}}">Delete Account</a>
+                  </li>
                 </ul>
               </li>
-              <li><i class="fas fa-chart-pie icon"></i> Charts</li>
+              <li>
+                <i class="fab fa-wpforms icon"></i> View Status
+                <ul>
+                  <li>
+                    <i class="fas fa-pencil-alt icon"></i>
+                    <a href="{{ url_for('custstatus')}}">Customer Status</a>
+                  </li>
+                  <li>
+                    <i class="fas fa-paper-plane icon"></i
+                    ><a href="{{ url_for('accstatus')}}">Account Status</a>
+                  </li>
+                </ul>
+              </li>
+              <li><i class="fas fa-chart-pie icon"></i> Logout</li>
             </ul>
           </div>
         </div>

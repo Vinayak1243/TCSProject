@@ -1,0 +1,65 @@
+{% extends 'Basic.html' %} {% block head %}
+<title>Account Status</title>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+  crossorigin="anonymous"
+/>
+
+{% endblock %} {% block body %}
+<div class="mx-auto col-sm-8">
+  <!-- form user info -->
+  <div class="card" style="margin-left: 20%;">
+    <div class="card-header" style="background-color: blue;">
+      <h4 class="mb-0" style="color: white;">Account Status</h4>
+    </div>
+    <div class="card-body">
+      
+     
+          <table>
+            <tr>
+              <th>Customer ID</th>
+              <th>Account Type</th>
+              <th>Status</th>
+              <th>Message</th>
+              <th>Last Updated</th>
+            </tr>
+            <tr>
+              <td>600</td>
+              <td>Savings Account</td>
+              <td>Active</td>
+              <td>None</td>
+              <td>Recently</td>
+            </tr>
+            <tr>
+                <td>601</td>
+                <td>Current Account</td>
+                <td>Not Active</td>
+                <td>None</td>
+                <td>Recently</td>
+              </tr>
+              <tr>
+                <td>603</td>
+                <td>Savings Account</td>
+                <td>Active</td>
+                <td>None</td>
+                <td>Months ago</td>
+              </tr>
+          </table>
+          
+              
+        
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label"></label>
+          <div class="col-lg-8">
+            <br><br>
+            <input type="button" class="btn btn-primary" onClick="history.go(0)" VALUE="Refresh" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- /form user info -->
+</div>
+{% endblock %}

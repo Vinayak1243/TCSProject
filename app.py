@@ -62,12 +62,73 @@ def profile():
 
     return render_template('profile.html')
 
-@app.route('/update')
-def update():
+@app.route('/create')
+def create():
     if not g.user:
         return redirect(url_for('login'))
     else:
-        return render_template('update.html')
+        return render_template('create.html')
 
-    
+@app.route('/account')
+def account():
+    if not g.user:
+        return redirect(url_for('login'))
+    else:
+        return render_template('account.html')
+
+@app.route('/delacc')
+def delacc():
+    if not g.user:
+        return redirect(url_for('login'))
+    else:
+        return render_template('delacc.html')
+
+@app.route('/update1')
+def update1():
+    if not g.user:
+        return redirect(url_for('login'))
+    else:
+        return render_template('update1.html')
+
+@app.route('/delcust')
+def delcust():
+    if not g.user:
+        return redirect(url_for('login'))
+    else:
+        return render_template('delcust.html')
+
+@app.route('/update2')
+def update2():
+    if not g.user:
+        return redirect(url_for('login'))
+    else:
+        return render_template('update2.html')
+
+@app.route('/custstatus')
+def custstatus():
+    if not g.user:
+        return redirect(url_for('login'))
+    else:
+        return render_template('custstatus.html')
+
+@app.route('/accstatus')
+def accstatus():
+    if not g.user:
+        return redirect(url_for('login'))
+    else:
+        return render_template('accstatus.html')
+
+@app.route('/profile2')
+def profile2():
+    if not g.user:
+        return redirect(url_for('login'))
+    else:
+        return render_template('Profile2.html')
+@app.route('/getdetails')
+def getdetails():
+    if not g.user:
+        return redirect(url_for('login'))
+    else:
+        return render_template('cash-getdetails.html')
+
 app.run(debug=True)    
