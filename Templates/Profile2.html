@@ -39,23 +39,23 @@
                 <ul>
                   <li>
                     <i class="fas fa-boxes icon"></i
-                    ><a href="{{ url_for('account')}}">Deposit Amount</a>
+                    ><a href="{{ url_for('deposit')}}">Deposit Amount</a>
                   </li>
                   <li>
                     <i class="fas fa-boxes icon"></i
-                    ><a href="{{ url_for('delacc')}}">Withdraw Amount</a>
+                    ><a href="{{ url_for('withdraw')}}">Withdraw Amount</a>
                   </li>
                   <li>
                     <i class="fas fa-boxes icon"></i
-                    ><a href="{{ url_for('delacc')}}">Transfer Amount</a>
+                    ><a href="{{ url_for('transfer')}}">Transfer Amount</a>
                   </li>
                 </ul>
               </li>
               <li>
                 <i class="fas fa-chart-pie icon"></i>
-                <a href="{{ url_for('update1') }}"> Account Statement</a>
+                <a href="{{ url_for('statement') }}"> Account Statement</a>
               </li>
-              <li><i class="fas fa-chart-pie icon"></i> Logout</li>
+              <li><i class="fas fa-chart-pie icon"></i> <a href="{{ url_for('login') }}"> Logout</a></li>
             </ul>
           </div>
         </div>
