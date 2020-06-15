@@ -19,7 +19,11 @@
   <body>
     <header>
       <div style="background-color: #0062cc; height: 20vh;">
-      <h1 style="color: white; padding: 25px;font-size: 60px;margin-left: 5%;">The Federal Bank</h1>
+        <h1
+          style="color: white; padding: 25px; font-size: 60px; margin-left: 5%;"
+        >
+          The Federal Bank
+        </h1>
       </div>
     </header>
     <div class="container">
@@ -35,16 +39,26 @@
           <div class="body">
             <ul>
               <li>
-                <i class="fas fa-home icon"></i
-                ><a href="{{ url_for('create') }}"> Customer Management</a>
-              </li>
-              <li>
-                <i class="fas fa-chart-pie icon"></i>
-                <a href="{{ url_for('update1') }}"> Update Details</a>
-              </li>
-              <li>
                 <i class="fas fa-chart-pie icon"></i
-                ><a href="{{ url_for('delcust') }}"> Delete Details</a>
+                ><a href="{{ url_for('profile')}}">Home</a>
+              </li>
+              <li>
+                <i class="fas fa-underline icon"></i>
+                Customer Management
+                <ul>
+                  <li>
+                    <i class="fas fa-home icon"></i
+                    ><a href="{{ url_for('create') }}"> Create Customer </a>
+                  </li>
+                  <li>
+                    <i class="fas fa-chart-pie icon"></i>
+                    <a href="{{ url_for('update1') }}"> Update Customer</a>
+                  </li>
+                  <li>
+                    <i class="fas fa-chart-pie icon"></i
+                    ><a href="{{ url_for('delcust') }}"> Delete Customer</a>
+                  </li>
+                </ul>
               </li>
               <li>
                 <i class="fas fa-underline icon"></i>
@@ -61,39 +75,70 @@
                 </ul>
               </li>
               <li>
-                <i class="fab fa-wpforms icon"></i> View Status
+                <i class="fab fa-wpforms icon"></i> Customer Status
                 <ul>
                   <li>
                     <i class="fas fa-pencil-alt icon"></i>
-                    <a href="{{ url_for('custstatus')}}">Customer Status</a>
+                    <a href="{{ url_for('custstatus')}}"
+                      >View Customer Status</a
+                    >
                   </li>
                   <li>
                     <i class="fas fa-paper-plane icon"></i
-                    ><a href="{{ url_for('accstatus')}}">Account Status</a>
+                    ><a href="{{ url_for('accstatus')}}">View Account Status</a>
                   </li>
                 </ul>
               </li>
-              <li><i class="fas fa-chart-pie icon"></i><a href="{{ url_for('login')}}">Logout</a></li>
+              <li>
+                <i class="fas fa-chart-pie icon"></i
+                ><a href="{{ url_for('login')}}">Logout</a>
+              </li>
             </ul>
           </div>
         </div>
-        <hr>
-        <hr>
-        <hr>
+        <hr />
+        <hr />
+        <hr />
         {% block body %} {% endblock %}
       </div>
     </div>
-    <br>
-    <br>
+    <br />
+    <br />
     <footer>
       <div style="background-color: #0062cc; height: 15vh;">
         <div class="row">
-      <h1 style="color: white; padding: 25px;font-size: 30px;margin-left: 10%;">About Us</h1> 
-      <h1 style="color: white; padding: 25px;font-size: 30px;margin-left: 20%; text-align: center;">Services</h1> 
-      <h1 style="color: white; padding: 25px;font-size: 30px;margin-left: 15%;">Contact Us</h1> 
-      
-    </div>
-
+          <h1
+            style="
+              color: white;
+              padding: 25px;
+              font-size: 30px;
+              margin-left: 10%;
+            "
+          >
+            About Us
+          </h1>
+          <h1
+            style="
+              color: white;
+              padding: 25px;
+              font-size: 30px;
+              margin-left: 20%;
+              text-align: center;
+            "
+          >
+            Services
+          </h1>
+          <h1
+            style="
+              color: white;
+              padding: 25px;
+              font-size: 30px;
+              margin-left: 15%;
+            "
+          >
+            Contact Us
+          </h1>
+        </div>
       </div>
     </footer>
   </body>

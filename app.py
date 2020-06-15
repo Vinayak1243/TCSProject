@@ -24,10 +24,32 @@ class User:
         return f'<User: {self.username}>'
 
 
+class customer:
+    def __init__(self, id, name, address, city, state):
+        self.id = id
+        self.name = name
+        self.address = address
+        self.city = city
+        self.state = state
+
+    def __repr__(self):
+        return f"<User: {self.name}>"
+
+
 users = []
 users.append(User(id=1, username='Anthony', password='password'))
 users.append(User(id=2, username='Becca', password='secret'))
 users.append(User(id=3, username='Carlos', password='somethingsimple'))
+
+
+Customers = []
+
+Customers.append(customer(id=1, name='Annie',
+                          address='Area1', city='Vegas', state='US'))
+Customers.append(customer(id=3, name='Reese',
+                          address='Area2', city='Ohio', state='US'))
+Customers.append(customer(id=3, name='Julia',
+                          address='Area3', city='Atlanta', state='US'))
 
 
 @app.before_request
@@ -64,7 +86,6 @@ def login():
                     "INSERT INTO AccountExecutive_Login (username,password) VALUES (?,?)", (username, password))
                 con.commit()
                 con.close()
-                flash('Login Successful', 'Danger')
                 return redirect(url_for('profile'))
             elif "Cashier" in request.form:
 
@@ -79,6 +100,23 @@ def login():
         return redirect(url_for('login'))
 
     return render_template('login.html')
+
+
+@app.route('/search')
+def search():
+    if not g.user:
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':
+        return redirect(url_for('searchresult'))
+
+
+    return render_template('searchcus.html')
+
+
+@app.route('/searchresult')
+def searchresult():
+    return render_template('searchresult.html')
 
 
 @app.route('/profile')

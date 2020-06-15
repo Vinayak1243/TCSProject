@@ -1,0 +1,54 @@
+{% extends 'Profile2.html' %} {% block head %}
+<title>Customer Management</title>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+  crossorigin="anonymous"
+/>
+
+{% endblock %} {% block body %}
+<div class="mx-auto col-sm-8">
+  <!-- form user info -->
+  <br />
+  <br />
+  <br />
+  <div class="card" style="margin-left: 20%;">
+    <div class="card-header" style="background-color: blue;">
+      <h4 class="mb-0" style="color: white;">Search Customer Details</h4>
+    </div>
+    <div class="card-body">
+      <form class="form" role="form" method="POST" autocomplete="off">
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label"
+            >Customer ID</label
+          >
+          <div class="col-lg-9">
+            <input class="form-control" type="text" name="id1" value="" />
+          </div>
+        </div>
+        <h4 style="text-align: center; font-weight: 100;">or</h4>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label">
+            SSN ID
+          </label>
+          <div class="col-lg-9">
+            <input class="form-control" name="id" type="integer" value="" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label"></label>
+          <div class="col-lg-9">
+            <input type="reset" class="btn btn-secondary" value="Cancel" />
+            <button type="submit" class="btn btn-secondary" style="background-color: blue;">
+              <a href="{{ url_for('searchresult')}}">Search</a>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- /form user info -->
+</div>
+{% endblock %}
