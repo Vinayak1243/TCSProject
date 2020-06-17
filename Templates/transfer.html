@@ -16,15 +16,16 @@
       <h4 class="mb-0" style="color: white;">Transfer Money</h4>
     </div>
     <div class="card-body">
-      <form class="form" role="form" autocomplete="off">
+      <form class="form" role="form" method="POST" autocomplete="off">
         <div class="form-group row">
           <label class="col-lg-3 col-form-label form-control-label"
             >Customer ID</label
           >
           <div class="col-lg-9">
-            <input class="form-control" type="text" value="" />
+            <input class="form-control" name="id1" type="text" value="" />
           </div>
         </div>
+        
 
         <div class="form-group row">
             <label class="col-lg-3 col-form-label form-control-label"
@@ -39,7 +40,14 @@
               </select>
             </div>
           </div>
-          
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label form-control-label"
+              >Target Customer ID</label
+            >
+            <div class="col-lg-9">
+              <input class="form-control" name="id2" type="text" value="" />
+            </div>
+          </div>  
          <div class="form-group row">
             <label class="col-lg-3 col-form-label form-control-label"
               >Target account type</label
@@ -57,19 +65,24 @@
         <div class="form-group row">
           <label class="col-lg-3 col-form-label form-control-label">Transfer Amount</label>
           <div class="col-lg-9">
-            <input class="form-control" type="integer" value="" />
+            <input class="form-control" name="amount" type="integer" value="" />
           </div>
         </div>
         
          
         
         
-        
         <div class="form-group row">
           <label class="col-lg-3 col-form-label form-control-label"></label>
           <div class="col-lg-9">
             <input type="reset" class="btn btn-secondary" value="Cancel" />
-            <input type="button" class="btn btn-primary" value="Transfer" />
+            <button
+              type="submit"
+              class="btn btn-secondary"
+              style="background-color: blue;"
+            >
+              Transfer
+            </button>
           </div>
         </div>
       </form>

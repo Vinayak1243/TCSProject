@@ -25,12 +25,13 @@ class User:
 
 
 class customer:
-    def __init__(self, id, name, address, city, state):
+    def __init__(self, id, name, address, city, state, amount):
         self.id = id
         self.name = name
         self.address = address
         self.city = city
         self.state = state
+        self.amount = amount
 
     def __repr__(self):
         return f"<User: {self.name}>"
@@ -44,12 +45,12 @@ users.append(User(id=3, username='Carlos', password='somethingsimple'))
 
 Customers = []
 
-Customers.append(customer(id=1, name='Annie',
-                          address='Area1', city='Vegas', state='US'))
-Customers.append(customer(id=3, name='Reese',
-                          address='Area2', city='Ohio', state='US'))
-Customers.append(customer(id=3, name='Julia',
-                          address='Area3', city='Atlanta', state='US'))
+Customers.append(customer(id='1', name='Annie',
+                          address='Area1', city='Vegas', state='US', amount=1000))
+Customers.append(customer(id='2', name='Reese',
+                          address='Area2', city='Ohio', state='US', amount=500))
+Customers.append(customer(id='3', name='Julia',
+                          address='Area3', city='Atlanta', state='US', amount=900))
 
 
 @app.before_request
@@ -102,15 +103,18 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/search')
+@app.route('/search', methods=['GET', 'POST'])
 def search():
     if not g.user:
         return redirect(url_for('login'))
-    
-    if request.method == 'POST':
-        return redirect(url_for('searchresult'))
 
-
+    elif request.method == 'POST':
+        id1 = request.form['id1']
+        for i in Customers:
+            if id1 == i.id:
+                return render_template('searchresult.html', z=[i.id, i.name, i.address, i.city, i.state, i.amount])
+        flash('Customer not found please check your ID ', 'danger')
+        return render_template('searchcus.html')
     return render_template('searchcus.html')
 
 
@@ -215,28 +219,59 @@ def getdetails():
         return render_template('cash-getdetails.html')
 
 
-@app.route('/deposit')
+@app.route('/deposit', methods=['GET', 'POST'])
 def deposit():
     if not g.user:
         return redirect(url_for('login'))
-    else:
-        return render_template('deposit.html')
+    elif request.method == 'POST':
+        id1 = request.form['id1']
+        amount = request.form['amount']
+
+        for i in Customers:
+            if id1 == i.id:
+                i.amount += int(amount)
+                flash('Deposit made successfully', 'success')
+                return render_template('deposit.html')
+
+    return render_template('deposit.html')
 
 
-@app.route('/withdraw')
+@app.route('/withdraw', methods=['GET', 'POST'])
 def withdraw():
     if not g.user:
         return redirect(url_for('login'))
-    else:
-        return render_template('withdraw.html')
+    elif request.method == 'POST':
+        id1 = request.form['id1']
+        amount = request.form['amount']
+
+        for i in Customers:
+            if id1 == i.id:
+                i.amount -= int(amount)
+                flash('Withdraw made successfully', 'success')
+                return render_template('withdraw.html')
+    return render_template('withdraw.html')
 
 
-@app.route('/transfer')
+@app.route('/transfer', methods=['GET', 'POST'])
 def transfer():
     if not g.user:
         return redirect(url_for('login'))
-    else:
-        return render_template('transfer.html')
+    elif request.method == 'POST':
+        id1 = request.form['id1']
+        id2 = request.form['id2']
+        amount = request.form['amount']
+        for i in Customers:
+            if id1 == i.id:
+                for j in Customers:
+                    if id2 == j.id:
+                        if i.amount < int(amount):
+                            flash('User dont have sufficient money', 'success')
+                            return render_template('transfer.html')        
+                        i.amount -= int(amount)
+                        j.amount += int(amount)
+                        flash('The transfer was made successfully', 'success')
+                        return render_template('transfer.html')
+    return render_template('transfer.html')
 
 
 @app.route('/statement')
