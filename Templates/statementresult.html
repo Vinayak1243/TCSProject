@@ -1,5 +1,5 @@
-{% extends 'Basic.html' %} {% block head %}
-<title>Customer Status</title>
+{% extends 'Profile2.html' %} {% block head %}
+<title>Account Status</title>
 <link
   rel="stylesheet"
   href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -12,27 +12,29 @@
   <!-- form user info -->
   <div class="card" style="margin-left: 20%;">
     <div class="card-header" style="background-color: blue;">
-      <h4 class="mb-0" style="color: white;">Customer Status</h4>
+      <h4 class="mb-0" style="color: white;">Account Statement</h4>
     </div>
     <div class="card-body">
       
      
           <table>
             <tr>
-              <th>SSN ID</th>
-              <th>Status</th>
-              <th>Message</th>
-              <th>Last Updated</th>
-            </tr>
-            {% for i in  z  %}
+              <th>Activity No.</th>
+              <th>Date</th>
+              <th>Credit or Debit</th>
+              <th>Amount</th>
+              <th>Current Balance</th>
+            </tr>    
+        {% for i in  z  %}
             <tr>
-              <td>{{ i.cid }}</td>
-              <td>{{ i.status }}</td>
-              <td>{{ i.message }}</td>
-              <td>{{ i.update }}</td>
+              <td>{{ i[0] }}</td>
+              <td>{{ i[1] }} </td>
+              <td>{{ i[2] }}</td>
+              <td>{{ i[3] }}</td>
+              <td>{{ i[4] }}</td>
             </tr>
             {% endfor %}
-                
+
           </table>
           
               

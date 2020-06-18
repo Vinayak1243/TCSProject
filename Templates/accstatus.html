@@ -25,27 +25,16 @@
               <th>Message</th>
               <th>Last Updated</th>
             </tr>
+        {% for i in  z  %}
             <tr>
-              <td>600</td>
-              <td>Savings Account</td>
-              <td>Active</td>
-              <td>None</td>
-              <td>Recently</td>
+              <td>{{ i.cid }}</td>
+              <td>{{ i.type1 }} </td>
+              <td>{{ i.status }}</td>
+              <td>{{ i.message }}</td>
+              <td>{{ i.update }}</td>
             </tr>
-            <tr>
-                <td>601</td>
-                <td>Current Account</td>
-                <td>Not Active</td>
-                <td>None</td>
-                <td>Recently</td>
-              </tr>
-              <tr>
-                <td>603</td>
-                <td>Savings Account</td>
-                <td>Active</td>
-                <td>None</td>
-                <td>Months ago</td>
-              </tr>
+            {% endfor %}
+            
           </table>
           
               

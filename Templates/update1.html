@@ -12,13 +12,13 @@
       <h4 class="mb-0" style="color: white;">Update Customer Details</h4>
     </div>
     <div class="card-body">
-      <form class="form" role="form" autocomplete="off">
+      <form class="form" method="POST" role="form" autocomplete="off">
         <div class="form-group row">
           <label class="col-lg-6 col-form-label form-control-label"
             >Customer ID</label
           >
           <div class="col-lg-12">
-            <input class="form-control" type="text" value="" />
+            <input class="form-control" type="text" name="cid" value="" />
           </div>
         </div>
         <h4 style="text-align: center; color: black; font-weight: 100;">or</h4>
@@ -28,15 +28,28 @@
             SSN ID
           </label>
           <div class="col-lg-12">
-            <input class="form-control" type="integer" value="" />
+            <input class="form-control" type="integer" name="sid" value="" />
           </div>
         </div>
 
         <div class="form-group row">
           <label class="col-lg-4 col-form-label form-control-label"></label>
           <div class="col-lg-12">
-            <input type="reset" class="btn btn-secondary" value="Cancel" />
-            <input type="button" class="btn btn-primary" value="Update" />
+            <button
+              type="reset"
+              class="btn btn-secondary"
+              style="background-color: red;"
+            >
+            <a href="{{ url_for('profile') }}"> Cancel</a>
+            </button>
+            <button
+            type="submit"
+            class="btn btn-secondary"
+            style="background-color: blue;"
+          >
+            Submit
+          </button>
+
           </div>
         </div>
       </form>

@@ -10,7 +10,9 @@
 {% endblock %} {% block body %}
 <div class="mx-auto col-sm-8">
   <!-- form user info -->
-  <br> <br> <br>
+  <br />
+  <br />
+  <br />
   <div class="card" style="margin-left: 20%;">
     <div class="card-header" style="background-color: blue;">
       <h4 class="mb-0" style="color: white;">Transfer Money</h4>
@@ -25,57 +27,59 @@
             <input class="form-control" name="id1" type="text" value="" />
           </div>
         </div>
-        
 
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label form-control-label"
-              >Source account type</label
-            >
-            <div class="col-lg-9">
-              <select class="form-control" style="width: 60%;"
-                >
-                <option value="" disabled selected>Choose from options</option>
-                <option value="1"> Savings Account</option>
-                <option value="2"> Current Account</option>
-              </select>
-            </div>
+          <label class="col-lg-3 col-form-label form-control-label"
+            >Source account type</label
+          >
+          <div class="col-lg-9">
+            <select class="form-control" style="width: 60%;">
+              <option value="" disabled selected>Choose from options</option>
+              <option value="1"> Savings Account</option>
+              <option value="2"> Current Account</option>
+            </select>
           </div>
-          <div class="form-group row">
-            <label class="col-lg-3 col-form-label form-control-label"
-              >Target Customer ID</label
-            >
-            <div class="col-lg-9">
-              <input class="form-control" name="id2" type="text" value="" />
-            </div>
-          </div>  
-         <div class="form-group row">
-            <label class="col-lg-3 col-form-label form-control-label"
-              >Target account type</label
-            >
-            <div class="col-lg-9">
-              <select class="form-control" style="width: 60%;"
-                >
-                <option value="" disabled selected>Choose from options</option>
-                <option value="1"> Savings Account</option>
-                <option value="2"> Current Account</option>
-              </select>
-            </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label"
+            >Target Customer ID</label
+          >
+          <div class="col-lg-9">
+            <input class="form-control" name="id2" type="text" value="" />
           </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label"
+            >Target account type</label
+          >
+          <div class="col-lg-9">
+            <select class="form-control" style="width: 60%;">
+              <option value="" disabled selected>Choose from options</option>
+              <option value="1"> Savings Account</option>
+              <option value="2"> Current Account</option>
+            </select>
+          </div>
+        </div>
 
         <div class="form-group row">
-          <label class="col-lg-3 col-form-label form-control-label">Transfer Amount</label>
+          <label class="col-lg-3 col-form-label form-control-label"
+            >Transfer Amount</label
+          >
           <div class="col-lg-9">
             <input class="form-control" name="amount" type="integer" value="" />
           </div>
         </div>
-        
-         
-        
-        
+
         <div class="form-group row">
           <label class="col-lg-3 col-form-label form-control-label"></label>
           <div class="col-lg-9">
-            <input type="reset" class="btn btn-secondary" value="Cancel" />
+            <button
+              type="reset"
+              class="btn btn-secondary"
+              style="background-color: red;"
+            >
+              <a href="{{ url_for('profile2') }}"> Cancel</a>
+            </button>
             <button
               type="submit"
               class="btn btn-secondary"

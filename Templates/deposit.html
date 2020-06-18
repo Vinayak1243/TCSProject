@@ -62,13 +62,19 @@
         <div class="form-group row">
           <label class="col-lg-3 col-form-label form-control-label"></label>
           <div class="col-lg-9">
-            <input type="reset" class="btn btn-secondary" value="Cancel" />
+            <button
+              type="reset"
+              class="btn btn-secondary"
+              style="background-color: red;"
+            >
+            <a href="{{ url_for('profile2') }}"> Cancel</a>
+            </button>
             <button
               type="submit"
               class="btn btn-secondary"
               style="background-color: blue;"
             >
-              Search
+              Deposit
             </button>
           </div>
         </div>

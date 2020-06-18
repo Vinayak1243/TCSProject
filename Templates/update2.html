@@ -10,18 +10,18 @@
 {% endblock %} {% block body %}
 <div class="mx-auto col-sm-8" >
   <!-- form user info -->
-  <div class="card" style="margin-left: 0%;">
+  <div class="card" style="margin-left: 20%;">
     <div class="card-header" style="background-color: blue;">
       <h4 class="mb-0" style="color: white;">Update Customer</h4>
     </div>
     <div class="card-body">
-      <form class="form" role="form" autocomplete="off">
+      <form class="form" role="form" method="POST" autocomplete="off">
         <div class="form-group row">
           <label class="col-lg-3 col-form-label form-control-label"
             >Customer SSID</label
           >
           <div class="col-lg-9">
-            <input class="form-control" type="text" value="" />
+            <input class="form-control" name="cid" type="text" value="" />
           </div>
         </div>
         <div class="form-group row">
@@ -29,13 +29,13 @@
             >Customer name</label
           >
           <div class="col-lg-9">
-            <input class="form-control" type="text" value="" />
+            <input class="form-control" name="name" type="text" value="" />
           </div>
         </div>
         <div class="form-group row">
           <label class="col-lg-3 col-form-label form-control-label">Age</label>
           <div class="col-lg-9">
-            <input class="form-control" type="" value="" />
+            <input class="form-control" name="age" type="" value="" />
           </div>
         </div>
         <div class="form-group row">
@@ -43,21 +43,7 @@
             >Address</label
           >
           <div class="col-lg-9">
-            <input class="form-control" type="" value="" />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-lg-3 col-form-label form-control-label"
-            >State</label
-          >
-          <div class="col-lg-9">
-            <select class="form-control" style="width: 50%;"
-              >
-              <option value="" disabled selected></option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </select>
+            <input class="form-control" name="address" type="" value="" />
           </div>
         </div>
         <div class="form-group row">
@@ -65,21 +51,34 @@
             >City</label
           >
           <div class="col-lg-9">
-            <select class="form-control" style="width: 50%;"
-              >
-              <option value="" disabled selected></option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </select>
+            <input class="form-control" type="" name="city" value="" />
           </div>
         </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label form-control-label">State</label>
+          <div class="col-lg-9">
+            <input class="form-control" type="" name="state" value="" />
+          </div>
+        </div>
+
         
         <div class="form-group row">
           <label class="col-lg-3 col-form-label form-control-label"></label>
           <div class="col-lg-9">
-            <input type="reset" class="btn btn-secondary" value="Cancel" />
-            <input type="button" class="btn btn-primary" value="Update Changes" />
+            <button
+              type="reset"
+              class="btn btn-secondary"
+              style="background-color: red;"
+            >
+            <a href="{{ url_for('profile') }}"> Cancel</a>
+            </button>
+            <button
+              type="submit"
+              class="btn btn-secondary"
+              style="background-color: blue;"
+            >
+              Update
+            </button>
           </div>
         </div>
       </form>

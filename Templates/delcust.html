@@ -10,37 +10,50 @@
 {% endblock %} {% block body %}
 <div class="mx-auto col-sm-8">
   <!-- form user info -->
-  <br> <br> <br>
+  <br />
+  <br />
+  <br />
   <div class="card" style="margin-left: 20%;">
     <div class="card-header" style="background-color: blue;">
       <h4 class="mb-0" style="color: white;">Delete Customer Details</h4>
     </div>
     <div class="card-body">
-      <form class="form" role="form" autocomplete="off">
+      <form class="form" role="form" method="POST" autocomplete="off">
         <div class="form-group row">
           <label class="col-lg-3 col-form-label form-control-label"
             >Customer ID</label
           >
           <div class="col-lg-9">
-            <input class="form-control" type="text" value="" />
+            <input class="form-control" type="text" name="cid" value="" />
           </div>
         </div>
-          
+
         <div class="form-group row">
-          <label class="col-lg-3 col-form-label form-control-label"> Customer Name </label>
+          <label class="col-lg-3 col-form-label form-control-label">
+            Customer Name
+          </label>
           <div class="col-lg-9">
-            <input class="form-control" type="integer" value="" />
+            <input class="form-control" name="name" type="integer" value="" />
           </div>
         </div>
-        
-         
-       
-        
+
         <div class="form-group row">
           <label class="col-lg-3 col-form-label form-control-label"></label>
           <div class="col-lg-9">
-            <input type="reset" class="btn btn-secondary" value="Cancel" />
-            <input type="button" class="btn btn-primary" value="Delete" />
+            <button
+              type="reset"
+              class="btn btn-secondary"
+              style="background-color: red;"
+            >
+            <a href="{{ url_for('profile') }}"> Cancel</a>
+            </button>
+            <button
+              type="submit"
+              class="btn btn-secondary"
+              style="background-color: blue;"
+            >
+              Delete
+            </button>
           </div>
         </div>
       </form>
